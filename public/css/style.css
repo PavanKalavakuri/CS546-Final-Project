@@ -1,0 +1,122 @@
+body {
+  padding-top: 100px;
+  background-color: #B0E0E6;
+}
+
+#nav {
+  background-color: #B0E0E6;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.slot {
+  box-shadow: none !important;
+}
+
+.scroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.accordion-button {
+  box-shadow: none !important;
+}
+
+.user-scroll {
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.pat-scroll {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* #schdl_section1 {
+  display: block;
+  overflow: auto;
+} */
+
+.img-thumbnail {
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+textarea {
+  height: 200px;
+}
+
+.star {
+  color: orange;
+}
+
+
+
+.carousel-control-prev, .carousel-control-next{
+  width: 2%;
+}
+
+.home_text {
+  font-size: 50px;
+}
+
+#map {
+  height: initial;
+}
+
+.list-group-item-action {
+  min-height: 7em;
+  position: sticky;
+}
+
+
+#recent_review .collapse, .module .collapsing {
+  height: 3rem;  /* [NUM_OF_LINES] x [LINE_HEIGHT] */
+}
+
+#recent_review .collapse {
+  position: relative;  /* For ...'s content absolute positioning */
+  display: block;
+  overflow: hidden;
+}
+
+#recent_review .collapse:before {
+  content: ' ...';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+#recent_review .collapse.show {
+  height: auto;  /* You need to reset the height when not collapsed */
+}
+
+#recent_review .collapse.show:before {
+  display: none;  /* Of course you don't want to display ... */
+}
+
+#recent_review a.collapsed:after {
+  content: 'show more';
+}
+
+#recent_review a:not(.collapsed):after {
+  content: 'show less';
+}
+
+#DocName {
+  font-size: 1.3em;
+  font-weight: 500;
+}
+#DocSpecialty {
+  font-size: 1em;
+
+}
+#DocQualification {
+  font-size: 1em;
+  font-weight: 300;
+}

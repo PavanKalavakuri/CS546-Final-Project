@@ -1,0 +1,46 @@
+<div class="container h-100">
+
+
+  <div class="row justify-content-center">
+    {{> searchbar}}
+    <div class="col-md-7 ">
+      {{#if searchError}}
+      <div class="d-flex p-2"></div>
+      <h1 class="text-danger">{{{searchError}}}</h1>
+    </div>
+    {{/if}}
+    {{#if docs}}
+    <div id="myList" class="list-group">
+      {{!-- {{#each docs}}
+      <a href="/doctor/{{this._id}}" class="list-group-item list-group-item-action"> {{counter @index}}
+        {{this.firstname}}
+        {{this.lastname}}<br>{{this.specialty}}<br>{{this.address}}
+        {{this.apartment}},{{this.city}},{{this.state}},{{this.zip}}</a>
+      {{/each}} --}}
+    </div>
+
+    <div class="row">
+      <a class="list-group-item text-center rounded col-6" href="" onclick="prevPage(); return false;" id="prev">« <span
+          class="sr-only">Previous Page</span></a>
+      <a class="list-group-item text-center rounded col-6" href="" onclick="nextPage(); return false;" id="next"><span
+          class="sr-only">Next Page</span> »</a>
+    </div>
+
+    {{/if}}
+  </div>
+  <div id="map" class="col-md-5" style="min-height: 40em">
+  </div>
+</div>
+</div>
+{{#if docs}}
+<script>
+  var decodedJson = decodeURIComponent(`{{{docsEncoded}}}`);
+  var stores = JSON.parse(decodedJson);
+  //  let stores = {{{ docs }}}; // the triple brackets
+</script>
+{{/if}}
+{{#unless docs}}
+<script>
+  var stores = {};
+</script>
+{{/unless}}

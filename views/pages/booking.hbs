@@ -1,0 +1,389 @@
+<div id="apptmnt_section" class="container">
+  <div class="row">
+    <div class="col-5 mx-auto">
+      <div class="card rounded-0">
+        <div class="card-body p-3">
+          <form id="book_form">
+            <div class="row mb-4">
+              <div class="col">
+                <div class="card card-body rounded-0">
+                  <div class="row">
+                    <div class="col-4">
+                      <img
+                        class="img-thumbnail border-secondary rounded-circle"
+                        src="/public/img/{{data.doc_id}}.png"
+                        alt="Doctor Image"
+                      />
+                    </div>
+                    <div class="col">
+                      <p class="fw-bold fs-5">Dr.
+                        {{data.doc_firstname}}
+                        {{data.doc_lastname}},
+                        {{data.qualification}}</p>
+                      <p class="small">{{data.specialty}}</p>
+                      <p class="small text-muted">{{data.address}},
+                        {{data.city}},
+                        {{data.state}},
+                        {{data.zip}}</p>
+                      <ul><li class="list-inline-item mt-3"><i
+                          class="fa fa-star star me-2"
+                          aria-hidden="true"
+                        ></i>{{data.rating}}</li></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col">
+                <h4 id="info">Review details and book</h4>
+              </div>
+            </div>
+            <div id="form">
+              <div class="row my-3">
+                <div class="col">
+                  <p>First name</p>
+                  <input
+                    type="text"
+                    name="firstname"
+                    class="form-control rounded-0"
+                    id="firstname"
+                    value="{{data.firstname}}"
+                    required
+                  />
+                </div>
+                <div class="col">
+                  <p>Last name</p>
+                  <input
+                    type="text"
+                    name="lastname"
+                    class="form-control rounded-0"
+                    id="lastname"
+                    value="{{data.lastname}}"
+                    required
+                  />
+                </div>
+                <span id="name-error" class="text-danger"></span>
+              </div>
+              <div class="row my-3">
+                <div class="col">
+                  <p>Someone else</p>
+                  <select
+                    class="form-select rounded-0"
+                    id="isElse"
+                    name="isElse"
+                  >
+                    <option value="no" selected>No</option>
+                    <option value="yes">Yes</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row my-3">
+                <div class="col">
+                  <p>Patient's Age</p>
+                  <input
+                    type="number"
+                    name="age"
+                    class="form-control rounded-0"
+                    id="age"
+                    min="1"
+                    required
+                  />
+                </div>
+                <span id="age-error" class="text-danger"></span>
+              </div>
+              <div class="row my-3">
+                <div class="col">
+                  <p>Patient's Gender</p>
+                  <select
+                    class="form-select rounded-0"
+                    id="gender"
+                    name="gender"
+                  >
+                    <option value="male" selected>Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row my-3">
+                <div class="col">
+                  <p>Phone number</p>
+                  <input
+                    type="number"
+                    name="number"
+                    class="form-control rounded-0"
+                    id="phone"
+                    required
+                  />
+                  <span id="phone-error" class="text-danger"></span>
+                </div>
+              </div>
+              <div class="row my-3">
+                <div class="col">
+                  <p>Choose your insurance</p>
+                  <select
+                    class="form-select rounded-0"
+                    id="insurance"
+                    name="insurance"
+                  >
+                    <option value="self" {{select data.insurance "self"}}>Self
+                      Payment</option>
+                    <option
+                      value="aetna"
+                      {{select data.insurance "aetna"}}
+                    >Aetna</option>
+                    <option
+                      value="cigna"
+                      {{select data.insurance "cigna"}}
+                    >Cigna</option>
+                    <option value="uhc" {{select data.insurance "uhc"}}>United
+                      Healthcare</option>
+                    <option
+                      value="humana"
+                      {{select data.insurance "humana"}}
+                    >Humana</option>
+                    <option
+                      value="kaiser"
+                      {{select data.insurance "kaiser"}}
+                    >Kaiser Foundation</option>
+                    <option
+                      value="centene"
+                      {{select data.insurance "centene"}}
+                    >Centene Corporation</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row my-3">
+                <div class="col">
+                  <p>Choose your reason to visit</p>
+                  <select
+                    class="form-select rounded-0"
+                    id="reason"
+                    name="reason"
+                  >
+                    <option
+                      value="illness"
+                      {{select data.reason "illness"}}
+                    >Illness</option>
+                    <option
+                      value="cold"
+                      {{select data.reason "cold"}}
+                    >Cold</option>
+                    <option
+                      value="cough"
+                      {{select data.reason "cough"}}
+                    >Cough</option>
+                    <option
+                      value="depression"
+                      {{select data.reason "depression"}}
+                    >Depression</option>
+                    <option
+                      value="headache"
+                      {{select data.reason "headache"}}
+                    >Headache</option>
+                    <option
+                      value="sore_throat"
+                      {{select data.reason "sore_throat"}}
+                    >Sore Throat</option>
+                    <option
+                      value="stomach_pain"
+                      {{select data.reason "stomach_pain"}}
+                    >Stomach Pain</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row my-3">
+                <div class="col">
+                  <p>Patient is new to the Doctor?</p>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="newPatient"
+                      id="inlineRadio1"
+                      value="yes"
+                      required
+                      {{check data.new_patient "yes"}}
+                    />
+                    <label
+                      class="form-check-label"
+                      for="inlineRadio1"
+                    >Yes</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="newPatient"
+                      id="inlineRadio2"
+                      value="no"
+                      {{check data.new_patient "no"}}
+                      required
+                    />
+                    <label
+                      class="form-check-label"
+                      for="inlineRadio2"
+                    >No</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-3">
+                <div class="col text-center">
+                  <p>
+                    <label class="fw-light">Current Appointment:</label>
+                    <label id="labelCurApptmnt" class="fs-5 m-2">{{time data.timeSlot}}</label>
+                    <label><a id="edit" href="">edit</a></label>
+                  </p>
+                </div>
+              </div>
+
+              <div id="availability" class="row my-3">
+                <p>Select a time slot</p>
+                <div class="card border-0 border-secondary rounded-0 px-0">
+                  <div class="card-header bg-white border-0 px-0">
+                    <div
+                      class="row d-flex justify-content-between px-0 text-center"
+                    >
+                      <div class="col-1 px-0">
+                        <a id="prevPage" href="">
+                          <i class="fas fa-angle-double-left fa-lg"></i>
+                        </a>
+                      </div>
+                      <div id="labelSlotsDay1" class="col px-0 text-wrap">Day 1</div>
+                      <div id="labelSlotsDay2" class="col px-0">Day 2</div>
+                      <div id="labelSlotsDay3" class="col px-0">Day 3</div>
+                      <div id="labelSlotsDay4" class="col px-0">Day 4</div>
+                      <div id="labelSlotsDay5" class="col px-0">Day 5</div>
+                      <div id="labelSlotsDay6" class="col px-0">Day 6</div>
+                      <div id="labelSlotsDay7" class="col px-0">Day 7</div>
+                      <div class="col-1 px-0">
+                        <a id="nextPage" href="">
+                          <i class="fas fa-angle-double-right fa-lg"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body p-0 scroll">
+                    <div
+                      class="row d-flex justify-content-between px-0 text-center"
+                    >
+                      <div id="slotsDay1" class="col pe-0">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >09:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >10:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >11:00</button>
+                      </div>
+                      <div id="slotsDay2" class="col px-0">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div id="slotsDay3" class="col px-0">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div id="slotsDay4" class="col px-0">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div id="slotsDay5" class="col px-0">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >11:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >12:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >13:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >14:00</button>
+                      </div>
+                      <div id="slotsDay6" class="col px-0">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div id="slotsDay7" class="col ps-0">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer text-center bg-white border-0 px-0">
+                    <div class="row">
+                      <div class="col">
+                        <p>
+                          <label class="fw-light">Selected Appointment:</label>
+                          <label
+                            id="labelNewApptmnt"
+                            class="fs-5 m-2"
+                          >April 30, 20:00</label>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row my-3">
+                <div class="col">
+                  <div class="form-floating">
+                    <textarea
+                      class="form-control rounded-0"
+                      placeholder="Notes"
+                      id="notesText"
+                      style="height: 100px"
+                    ></textarea>
+                    <label for="notesText">Notes to doctor (Optional)</label>
+                  </div>
+                </div>
+              </div>
+              <div id="continue" class="row text-center">
+                <div class="d-grid col-6 mx-auto">
+                  {{! do not remove below line }}
+                  <input type="hidden" id="id" value="{{data.doc_id}}" />
+                  <input type="hidden" id="user_id" value="{{data.user_id}}" />
+                  <input type="hidden" id="time" value="{{data.timeSlot}}" />
+                  <span id="form-error" class="text-danger">Please select a time
+                    slot!</span>
+                  <button class="btn btn-primary rounded-0" type="submit">Book
+                    Appointment</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

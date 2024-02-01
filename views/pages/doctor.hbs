@@ -1,0 +1,374 @@
+<div class="container">
+  <div class="row gx-4">
+    <div id="doc_section" class="col">
+      <div id="photo_name" class="row my-3">
+        <div class="col-3">
+          <img
+            class="img-thumbnail border-secondary rounded-circle"
+            src="/public/img/{{id}}.png"
+            alt=""
+          />
+        </div>
+        <div class="col">
+          <p class="fs-1">Dr. {{name}}, {{qualification}}</p>
+          <p class="fs-5">{{specialty}}</p>
+          <p class="text-muted fs-5">{{city}}, {{state}}</p>
+        </div>
+      </div>
+      <div id="nav_section" class="row py-3">
+        <nav
+          id="navbar-example2"
+          class="navbar navbar-light px-3 border-top border-bottom"
+        >
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#about">About</a>
+            <a class="navbar-brand" href="#insurances">Insurances</a>
+            <a class="navbar-brand" href="#location">Location</a>
+            <a class="navbar-brand" href="#reviews">Reviews</a>
+          </div>
+        </nav>
+      </div>
+      <div class="row py-3">
+        <div id="rating" class="col-3">
+          <p class="fs-5">Overall rating</p>
+          <p class="fs-1">{{rating}}</p>
+          <a href="#reviews">{{reviews_count}} reviews</a>
+        </div>
+        <div id="recent_review" class="col border-start px-5">
+          <p class="fs-5">Recent reviews</p>
+          <p class="collapse" id="rec_rev">
+            {{recent_review}}
+          </p>
+          <a
+            class="collapsed"
+            href="#rec_rev"
+            data-bs-toggle="collapse"
+            aria-expanded="false"
+            aria-controls="rec_rev"
+          ></a>
+          <p class="text-muted">{{recent_review_time}}</p>
+        </div>
+      </div>
+      <div
+        data-bs-spy="scroll"
+        data-bs-target="#navbar-example2"
+        data-bs-offset="0"
+        class="row py-3"
+        tabindex="0"
+      >
+        <div id="about" class="row py-3">
+          <h2>About Dr. {{name}}</h2>
+          <p>
+            {{description}}
+          </p>
+        </div>
+        <div id="insurances" class="row py-3">
+          <h3>Accepted Insurances</h3>
+          <div class="row">
+            <div class="col">
+              <p>Aetna</p>
+            </div>
+            <div class="col">
+              <p>Blue Cross Blue Shield</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>Cigna</p>
+            </div>
+            <div class="col">
+              <p>Medicare</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p>UnitedHealthCare</p>
+            </div>
+            <div class="col">
+              <p>EmblemHealth</p>
+            </div>
+          </div>
+        </div>
+        <div id="location" class="row py-3">
+          <h4>Office Location</h4>
+          <div id="map" class="col" style="height: 200px">
+
+          </div>
+          <div class="col-4">
+            <p>{{address}}</p>
+            <p>{{city}}, {{state}} {{zip}}</p>
+          </div>
+        </div>
+        <div id="reviews" class="row py-3">
+          <h4>Patient Reviews</h4>
+          <p class="text-muted">Reviews have been only posted by patients
+            consulted by Doctor</p>
+          {{#each reviews}}
+            <div class="row border-top my-3 py-2">
+              <p class="fs-4 m-2">
+                <i
+                  id="star1"
+                  class="{{star 1 this.rating}} rate fa fa-star"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  id="star2"
+                  class="{{star 2 this.rating}} rate fa fa-star"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  id="star3"
+                  class="{{star 3 this.rating}} rate fa fa-star"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  id="star4"
+                  class="{{star 4 this.rating}} rate fa fa-star"
+                  aria-hidden="true"
+                ></i>
+                <i
+                  id="star5"
+                  class="{{star 5 this.rating}} rate fa fa-star"
+                  aria-hidden="true"
+                ></i>
+              </p>
+              <p>
+                {{this.review}}
+              </p>
+              <p class="text-muted mt-2">{{this.review_time}}</p>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div id="apptmnt_section" class="col-5">
+      <div class="card rounded-0">
+        <div class="card-body p-3">
+          <form id="slot_form">
+            <div class="row my-2">
+              <div class="col">
+                <h4>Book an appointment now for free</h4>
+              </div>
+            </div>
+            <div class="row my-3">
+              <div class="col">
+                <p>Choose your insurance</p>
+                <select
+                  class="form-select rounded-0"
+                  id="insurance"
+                  name="insurance"
+                >
+                  <option value="choose" selected>Choose your Insurance</option>
+                  <option value="self">Self Payment</option>
+                  <option value="aetna">Aetna</option>
+                  <option value="cigna">Cigna</option>
+                  <option value="uhc">United Healthcare</option>
+                  <option value="humana">Humana</option>
+                  <option value="kaiser">Kaiser Foundation</option>
+                  <option value="centene">Centene Corporation</option>
+                  {{#each insurances}}
+                    <option value="{{this}}">{{this}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div class="row my-3">
+              <div class="col">
+                <p>Choose your reason to visit</p>
+                <select
+                  class="form-select rounded-0"
+                  id="reason"
+                  name="insurance"
+                >
+                  <option value="reason" selected>Reason</option>
+                  <option value="illness">Illness</option>
+                  <option value="cold">Cold</option>
+                  <option value="cough">Cough</option>
+                  <option value="depression">Depression</option>
+                  <option value="headache">Headache</option>
+                  <option value="sore_throat">Sore Throat</option>
+                  <option value="stomach_pain">Stomach Pain</option>
+                  {{#each insurances}}
+                    <option value="{{this}}">{{this}}</option>
+                  {{/each}}
+                </select>
+              </div>
+            </div>
+            <div class="row my-3">
+              <div class="col">
+                <p>Patient is new to the Doctor?</p>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="newPatient"
+                    id="inlineRadio1"
+                    value="yes"
+                    required
+                  />
+                  <label class="form-check-label" for="inlineRadio1">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="newPatient"
+                    id="inlineRadio2"
+                    value="no"
+                    required
+                  />
+                  <label class="form-check-label" for="inlineRadio2">No</label>
+                </div>
+              </div>
+            </div>
+            <div id="availability" class="row my-3">
+              <p>Select a time slot</p>
+
+              <div class="card border-0 border-secondary rounded-0 px-0">
+                <div class="card-header bg-white border-0 px-0">
+                  <div
+                    class="row d-flex justify-content-between px-0 text-center"
+                  >
+                    <div class="col-1 px-0">
+                      <a id="prevPage" href="">
+                        <i class="fas fa-angle-double-left fa-lg"></i>
+                      </a>
+                    </div>
+                    <div id="labelSlotsDay1" class="col px-0 text-wrap">Day 1</div>
+                    <div id="labelSlotsDay2" class="col px-0">Day 2</div>
+                    <div id="labelSlotsDay3" class="col px-0">Day 3</div>
+                    <div id="labelSlotsDay4" class="col px-0">Day 4</div>
+                    <div id="labelSlotsDay5" class="col px-0">Day 5</div>
+                    <div id="labelSlotsDay6" class="col px-0">Day 6</div>
+                    <div id="labelSlotsDay7" class="col px-0">Day 7</div>
+                    <div class="col-1 px-0">
+                      <a id="nextPage" href="">
+                        <i class="fas fa-angle-double-right fa-lg"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-0 scroll">
+                  <div
+                    class="row d-flex justify-content-between px-0 text-center"
+                  >
+                    <div id="slotsDay1" class="col pe-0">
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >07:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >08:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >09:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >10:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >11:00</button>
+                    </div>
+                    <div id="slotsDay2" class="col px-0">
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >07:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >08:00</button>
+                    </div>
+                    <div id="slotsDay3" class="col px-0">
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >07:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >08:00</button>
+                    </div>
+                    <div id="slotsDay4" class="col px-0">
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >07:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >08:00</button>
+                    </div>
+                    <div id="slotsDay5" class="col px-0">
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >11:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >12:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >13:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >14:00</button>
+                    </div>
+                    <div id="slotsDay6" class="col px-0">
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >07:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >08:00</button>
+                    </div>
+                    <div id="slotsDay7" class="col ps-0">
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >07:00</button>
+                      <button
+                        class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                      >08:00</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer text-center bg-white border-0 px-0">
+                  <div class="row">
+                    <div class="col">
+                      <p>
+                        <label class="fw-light">Selected Appointment:</label>
+                        <label
+                          id="labelNewApptmnt"
+                          class="fs-5 m-2"
+                        >April 30, 20:00</label>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="continue" class="row text-center">
+              <div class="d-grid col-6 mx-auto">
+                {{! do not remove below line }}
+                <input type="hidden" id="id" value="{{id}}" />
+                <span id="form-error" class="text-danger">Please select a time
+                  slot!</span>
+                <button class="btn btn-primary rounded-0" type="submit">Continue
+                  Booking</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initAutocomplete() {
+  const decodedJson_doc = decodeURIComponent(`{{{location_c}}}`);
+  const location =  JSON.parse(decodedJson_doc);
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 10,
+    center: location,
+  });
+  const marker = new google.maps.Marker({
+    position: location,
+    map: map,
+  });
+}
+
+</script>

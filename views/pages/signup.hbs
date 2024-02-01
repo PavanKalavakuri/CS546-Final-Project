@@ -1,0 +1,98 @@
+<div id="signup" class="container">
+  <div class="row align-items-center">
+    <div class="col-6 mx-auto">
+      <div class="card border-primary justify-content-center">
+        <div class="card-body align-items-center">
+          <form id="signup-form" action="{{action}}" method="post">
+            <div class="row mb-4">
+              <div class="col">
+                <label for="firstname" class="form-label">First name</label>
+                <input type="text" name="firstname" class="form-control" id="firstname" required />
+              </div>
+              <div class="col">
+                <label for="lastname" class="form-label">Last name</label>
+                <input type="text" name="lastname" class="form-control" id="lastname" required />
+              </div>
+              {{#if error.firstnameError}}
+              <span id="name-error" class="text-danger">{{error.firstnameError}}</span>
+              {{else if error.lastnameError}}
+              <span id="name-error" class="text-danger">{{error.lastnameError}}</span>
+              {{else}}
+              <span id="name-error" class="text-danger"></span>
+              {{/if}}
+            </div>
+            {{#if specialty}}
+            <div class="mb-4">
+              <label class="form-label" for="specialty">Primary specialty</label>
+              <select class="form-select" id="specialty" name="specialty">
+                <option selected>Specialty</option>
+                {{#each specialty}}
+                <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+              {{#if error.specialtyError}}
+              <span id="specialty-error" class="text-danger">{{error.specialtyError}}</span>
+              {{else}}
+              <span id="specialty-error" class="text-danger"></span>
+              {{/if}}
+            </div>
+            {{/if}}
+            {{#if specialty}}
+            <div class="mb-4">
+              <label class="form-label" for="address">Address (Please type and select a address from Drop-Down)</label>
+              <input class="form-select" id="location-input" name="address" aria-label="Address"></input>
+              {{#if error.addressError}}
+              <span id="address-error" class="text-danger">{{error.addressError}}</span>
+              {{else}}
+              <span id="address-error" class="text-danger"></span>
+              {{/if}}
+              <label class="form-label" for="address2">Apt, Suite, etc</label>
+              <input class="form-control" type="text" placeholder="Apt, Suite, etc (optional)" name="address2" aria-label="Apartment Number"/>
+
+              <label class="form-label" for="address3">City</label>
+              <input class="form-control" type="text" placeholder="City" id="locality-input" name="address3" aria-label="City" readonly />
+
+              <div class="half-input-container">
+                <label class="form-label" for="address4">State</label>
+                <input class="form-control" type="text" class="half-input" placeholder="State/Province"
+                  id="administrative_area_level_1-input" name="address4" readonly />
+                <label class="form-label" for="address5">Zip/Postal code</label>
+                <input class="form-control" type="text" class="half-input" placeholder="Zip/Postal code"
+                  id="postal_code-input" name="address5" readonly />
+              </div>
+              <label class="form-label" for="address6">Country</label>
+              <input class="form-control" type="text" placeholder="Country" id="country-input" name="address6"
+                readonly />
+
+
+            </div>
+            {{/if}}
+            <div class="mb-4">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" name="email" class="form-control" id="email" required />
+              {{#if error.emailError}}
+              <span id="email-error" class="text-danger">{{error.emailError}}</span>
+              {{else}}
+              <span id="email-error" class="text-danger"></span>
+              {{/if}}
+            </div>
+            <div class="mb-4">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" id="password" required />
+              {{#if error.passwordError}}
+              <span id="pass-error" class="text-danger">{{error.passwordError}}</span>
+              {{else}}
+              <span id="pass-error" class="text-danger"></span>
+              {{/if}}
+            </div>
+            {{#if error}}
+            <span id="error" hidden></span>
+            {{/if}}
+            <button type="submit" class="btn btn-primary mb-4">Sign Up</button>
+          </form>
+          <a href="{{linkTo}}">Already have an account? Click here to log-in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

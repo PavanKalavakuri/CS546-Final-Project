@@ -1,0 +1,45 @@
+<div id="login" class="container">
+  <div class="row align-items-center">
+    <div class="col-6 mx-auto">
+      <div class="card border-primary justify-content-center">
+        <div class="card-body align-items-center">
+          <form id="login-form" action="{{action}}" method="post">
+            <div class="form-outline mb-4">
+              <label for="email" class="form-label">Email Address</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="password" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                id="password"
+                required
+              />
+              {{#if error}}
+                <span
+                  id="pass-error"
+                  class="text-danger"
+                >{{error}}</span>
+              {{else}}
+                <span id="pass-error" class="text-danger"></span>
+              {{/if}}
+            </div>
+            {{#if error}}
+              <span id="error" hidden></span>
+            {{/if}}
+            <button type="submit" class="btn btn-primary mb-4">Login</button>
+          </form>
+          <a href="{{linkTo}}">Need to register? Click here to sign-up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

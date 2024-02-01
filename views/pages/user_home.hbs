@@ -1,0 +1,491 @@
+<div id="user_home" class="container">
+  <div id="search_section" class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body px-5 py-3">
+          <div class="home_text">
+            <h1>Hi {{auth.firstname}}</h1>
+            <h1>Book appointment now with the right Doctor !</h1>
+          </div>
+          {{> searchbar}}
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div id="user_section" class="row mt-4">
+    <div id="appointments" class="col-4">
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target=".multi-collapse"
+              aria-expanded="true"
+              aria-controls="collapseOne collapseTwo"
+            >
+              Upcoming Appointments
+            </button>
+          </h2>
+          <div
+            id="collapseOne"
+            class="accordion-collapse multi-collapse collapse show"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body p-0 user-scroll">
+              <div id="new_apptmnts">
+                <a class="dropdown-item p-0" href="">
+                  <div class="card-body border">
+                    <div class="row">
+                      <div class="col-3">
+                        <img
+                          class="img-thumbnail border-secondary"
+                          src="/public/img/doctor_male.jpeg"
+                          alt="Male Doctor Image"
+                        />
+                      </div>
+                      <div class="col">
+                        <p class="">Dr. Strange Supreme Socceror</p>
+                        <p class="small text-muted">Primary Care</p>
+                        <p class="small mt-2">April 29th 11:30 PM</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {{! else }}
+              <h3 id="no_new_apptmnt_h4">No New Appointments</h3>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button
+              class="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target=".multi-collapse"
+              aria-expanded="false"
+              aria-controls="collapseOne collapseTwo"
+            >
+              Past Appointments
+            </button>
+          </h2>
+          <div
+            id="collapseTwo"
+            class="accordion-collapse multi-collapse collapse"
+            aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample"
+          >
+            <div class="accordion-body p-0 accordian-scroll">
+              <div id="past_apptmnts">
+                <a class="dropdown-item p-0" href="">
+                  <div class="card-body border">
+                    <div class="row">
+                      <div class="col-3">
+                        <img
+                          class="img-thumbnail border-secondary"
+                          src="/public/img/doctor_male.jpeg"
+                          alt="Male Doctor Image"
+                        />
+                      </div>
+                      <div class="col">
+                        <p class="">Dr. Wanda Scarlet Witch</p>
+                        <p class="small text-muted">Primary Care</p>
+                        <p class="small mt-2">April 29th, 11:30 PM</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {{! else }}
+              <h3 id="no_past_apptmnt_h4">No Past Appointments</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col ml-5">
+      <div class="card card-body h-100">
+        <h3 id="no_apptmnt_h3">
+          No Appointments made... :(
+        </h3>
+        <div id="apptmnt_view" class="row">
+          <div class="col-4">
+            <div class="card">
+              <img
+                id="doc_img"
+                class="card-img-top border-secondary"
+                src="/public/img/doctor_male.jpeg"
+                alt="Doctor Image"
+              />
+              <div class="card-body">
+                <p id="doc_name" class="">Dr. Strange Supreme Socceror</p>
+                <p id="doc_spclty" class="small text-muted">Primary Care</p>
+                <p id="doc_addr" class="small fw-light mt-3">131 Webster Ave
+                  Second floor, Jersey City, NJ 07307</p>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card card-body h-100">
+              <div class="row">
+                <div class="col">
+                  <p>
+                    <label class="fw-light">Patient Name:</label>
+                    <label id="pat_name" class="fs-5 m-2">Anudeep Pala</label>
+                  </p>
+                  <p>
+                    <label class="fw-light">Reason:</label>
+                    <label id="pat_reason" class="m-2">Severe Fever</label>
+                  </p>
+                  <p>
+                    <label class="fw-light">Time:</label>
+                    <label id="appt_time" class="fs-5 m-2">April 30,
+                      19:00</label>
+                  </p>
+                  <p>
+                    <label class="fw-light">Notes:</label>
+                    <label id="appt_notes" class="m-2">I have been fully
+                      vaccinated</label>
+                  </p>
+                  <p>
+                    <label class="fw-light">Prescription:</label>
+                    <label id="appt_presc" class="m-2">NA</label>
+                  </p>
+                </div>
+                <div class="col">
+                  <p>
+                    <label class="fw-light">Gender:</label>
+                    <label id="pat_gen" class="fs-5 m-2">Male</label>
+                  </p>
+                  <p>
+                    <label class="fw-light">Age:</label>
+                    <label id="pat_age" class="fs-5 m-2">27</label>
+                  </p>
+                  <p>
+                    <label class="fw-light">Duration:</label>
+                    <label id="appt_dur" class="fs-5 m-2">30</label>
+                  </p>
+                  <p>
+                    <label class="fw-light">Status:</label>
+                    <label class="fs-5 m-2">Confirmed</label>
+                  </p>
+                </div>
+              </div>
+              <div
+                class="position-absolute bottom-0 end-0 d-grid gap-2 d-md-flex justify-content-md-end"
+              >
+                <button
+                  id="video_btn"
+                  class="btn btn-info me-md-2"
+                  type="button"
+                >Video Chat</button>
+                <button
+                  id="reschdl_btn"
+                  class="btn btn-warning me-md-2"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#rescheduleModal"
+                >Reschedule</button>
+                <button
+                  id="cncl_btn"
+                  class="btn btn-danger"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#cancelModal"
+                >Cancel</button>
+                <button
+                  id="revw_btn"
+                  class="btn btn-success"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#reviewModal"
+                >Review</button>
+              </div>
+
+              <div
+                class="modal fade"
+                id="reviewModal"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="staticBackdropLabel">Review
+                        Appointment</h4>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <div>
+                        <label class="fs-5 mx-2">Rating</label>
+                        <label id="rateNum" class="fs-3 mx-1"></label>
+                        <p class="fs-4 m-2">
+                          <i id="star1" class="rate fa fa-star" aria-hidden="true"></i>
+                          <i id="star2" class="rate fa fa-star" aria-hidden="true"></i>
+                          <i id="star3" class="rate fa fa-star" aria-hidden="true"></i>
+                          <i id="star4" class="rate fa fa-star" aria-hidden="true"></i>
+                          <i id="star5" class="rate fa fa-star" aria-hidden="true"></i>
+                        </p>
+                      </div>
+                      <div class="form-floating">
+                        <textarea
+                          class="form-control"
+                          placeholder="Leave a review here"
+                          id="reviewText"
+                          style="height: 200px"
+                        ></textarea>
+                        <label for="reviewText">Review</label>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >Close</button>
+                      <button
+                        id="submitReview"
+                        type="button"
+                        class="btn btn-success"
+                      >Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="modal fade"
+                id="cancelModal"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabindex="-1"
+                aria-labelledby="staticBackdropLabelCancel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabelCancel">Cancel
+                        Appointment</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Are you sure you want to cancel your Appointment?</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >No</button>
+                      <button
+                        id="cancelApptmnt"
+                        type="button"
+                        class="btn btn-primary"
+                      >Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="modal fade"
+                id="rescheduleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Reschedule
+                        Appointment</h5>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body p-0">
+                      <div class="card border-1 border-secondary rounded-0">
+                        <div class="card-header">
+                          <div
+                            class="row d-flex justify-content-between px-0 text-center"
+                          >
+                            <div class="col-1 px-0">
+                              <a id="prevPage" href="">
+                                <i class="fas fa-angle-double-left fa-lg"></i>
+                              </a>
+                            </div>
+                            <div
+                              id="labelSlotsDay1"
+                              class="col px-0 text-wrap"
+                            >Day 1</div>
+                            <div id="labelSlotsDay2" class="col px-0">Day 2</div>
+                            <div id="labelSlotsDay3" class="col px-0">Day 3</div>
+                            <div id="labelSlotsDay4" class="col px-0">Day 4</div>
+                            <div id="labelSlotsDay5" class="col px-0">Day 5</div>
+                            <div id="labelSlotsDay6" class="col px-0">Day 6</div>
+                            <div id="labelSlotsDay7" class="col px-0">Day 7</div>
+                            <div class="col-1 px-0">
+                              <a id="nextPage" href="">
+                                <i class="fas fa-angle-double-right fa-lg"></i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body user-scroll">
+                          <div
+                            class="row d-flex justify-content-between px-0 text-center"
+                          >
+                            <div class="col-1"></div>
+                            <div id="slotsDay1" class="col">
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >07:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >08:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >09:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >10:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >11:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >12:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >13:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >14:00</button>
+                            </div>
+                            <div id="slotsDay2" class="col">
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >07:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >08:00</button>
+                            </div>
+                            <div id="slotsDay3" class="col">
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >07:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >08:00</button>
+                            </div>
+                            <div id="slotsDay4" class="col">
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >07:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >08:00</button>
+                            </div>
+                            <div id="slotsDay5" class="col">
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >11:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >12:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >13:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >14:00</button>
+                            </div>
+                            <div id="slotsDay6" class="col">
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >07:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >08:00</button>
+                            </div>
+                            <div id="slotsDay7" class="col">
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >07:00</button>
+                              <button
+                                class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                              >08:00</button>
+                            </div>
+                            <div class="col-1"></div>
+                          </div>
+                        </div>
+                        <div class="card-footer">
+                          <div class="row">
+                            <div class="col">
+                              <p>
+                                <label class="fw-light">Current
+                                  Appointment:</label>
+                                <label
+                                  id="labelCurApptmnt"
+                                  class="fs-5 m-2"
+                                >April 30, 19:00</label>
+                              </p>
+                            </div>
+                            <div class="col">
+                              <p>
+                                <label class="fw-light">New Appointment:</label>
+                                <label
+                                  id="labelNewApptmnt"
+                                  class="fs-5 m-2"
+                                >April 30, 20:00</label>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >Close</button>
+                      <button
+                        id="updateApptmnt"
+                        type="button"
+                        class="btn btn-success"
+                      >Save</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

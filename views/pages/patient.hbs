@@ -1,0 +1,379 @@
+<div id="patient_page" class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h1>Patient Details</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <p>
+                      <label class="fw-light" for="">Patient Name:</label>
+                      <label
+                        class="fs-5 m-2"
+                        for=""
+                      >{{apptmnt.patient_name}}</label>
+                    </p>
+                    <p>
+                      <label class="fw-light" for="">Patient Age:</label>
+                      <label
+                        class="fs-5 m-2"
+                        for=""
+                      >{{apptmnt.patient_age}}</label>
+                    </p>
+                    <p>
+                      <label class="fw-light" for="">Patient Gender:</label>
+                      <label
+                        class="fs-5 m-2"
+                        for=""
+                      >{{apptmnt.patient_gender}}</label>
+                    </p>
+                  </div>
+                  <div class="col">
+                    <p>
+                      <label class="fw-light" for="">Insurance:</label>
+                      <label
+                        id="pat_insurance"
+                        class="fs-5 m-2"
+                        for=""
+                      >{{apptmnt.insurance}}</label>
+                    </p>
+                    <p>
+                      <label class="fw-light" for="">Occupation:</label>
+                      <label
+                        id="pat_occu"
+                        class="fs-5 m-2"
+                        for=""
+                      >{{apptmnt.occupation}}</label>
+                    </p>
+                    <p>
+                      <label class="fw-light" for="">Phone Number:</label>
+                      <label
+                        id="pat_phone"
+                        class="fs-5 m-2"
+                        for=""
+                      >{{apptmnt.patient_phone}}</label>
+                    </p>
+                  </div>
+                  <div class="col">
+                    <p>
+                      <label class="fw-light" for="">Account Name:</label>
+                      <label
+                        id="acc_name"
+                        class="fs-5 m-2"
+                        for=""
+                      >{{apptmnt.account_name}}</label>
+                    </p>
+                    <p>
+                      <label class="fw-light" for="">Total Visits:</label>
+                      <label id="pat_visits" class="fs-5 m-2" for="">2</label>
+                    </p>
+                    <p>
+                      <label class="fw-light" for="">Last Visit:</label>
+                      <label id="last_appt_time" class="fs-5 m-2" for="">April
+                        30, 19:00</label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-4">
+      <div class="card card-body">
+        <a
+          class="dropdown-item p-0"
+          href=""
+          data-bs-toggle="modal"
+          data-bs-target="#bookingModal"
+        >
+          <div class="card-body border text-center">
+            <h3>Create Appointment</h3>
+          </div>
+        </a>
+        <div id="all_apptmnts" class="pat-scroll">
+          <a class="dropdown-item p-0" href="">
+            <div class="card-body border">
+              <p class="">Anudeep Pala</p>
+              <p class="small text-muted">27 Male</p>
+              <p class="small mt-2">April 29th 11:30 PM</p>
+            </div>
+          </a>
+          <a class="dropdown-item p-0" href="">
+            <div class="card-body border">
+              <p class="">Anudeep Pala</p>
+              <p class="small text-muted">27 Male</p>
+              <p class="small mt-2">April 29th 11:30 PM</p>
+            </div>
+          </a>
+          <a class="dropdown-item p-0" href="">
+            <div class="card-body border">
+              <p class="">Anudeep Pala</p>
+              <p class="small text-muted">27 Male</p>
+              <p class="small mt-2">April 29th 11:30 PM</p>
+            </div>
+          </a>
+        </div>
+        <h4 id="no_apptmnt_h4">No Appointments</h4>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card card-body h-100">
+        <h3 id="no_apptmnt_h3">
+          No Appointments yet... :(
+        </h3>
+        <div class="row">
+          <div class="col">
+            <p>
+              <label class="fw-light" for="">Patient Name:</label>
+              <label id="pat_name" class="fs-5 m-2" for="">Anudeep Pala</label>
+            </p>
+            <p>
+              <label class="fw-light" for="">Reason:</label>
+              <label id="pat_reason" class="m-2">Severe Fever</label>
+            </p>
+            <p>
+              <label class="fw-light" for="">Time:</label>
+              <label id="appt_time" class="fs-5 m-2" for="">April 30, 19:00</label>
+            </p>
+            <p>
+              <label class="fw-light" for="">Notes:</label>
+              <label id="appt_notes" class="m-2">I have been fully vaccinated</label>
+            </p>
+            <p>
+              <label class="fw-light" for="">Prescription:</label>
+              <label id="appt_presc" class="m-2">NA</label>
+            </p>
+          </div>
+          <div class="col">
+            <p>
+              <label class="fw-light" for="">Gender:</label>
+              <label id="pat_gen" class="fs-5 m-2" for="">Male</label>
+            </p>
+            <p>
+              <label class="fw-light" for="">Age:</label>
+              <label id="pat_age" class="fs-5 m-2" for="">27</label>
+            </p>
+            <p>
+              <label class="fw-light" for="">Duration:</label>
+              <label id="appt_dur" class="fs-5 m-2" for="">30</label>
+            </p>
+            <p>
+              <label class="fw-light" for="">Status:</label>
+              <label class="fs-5 m-2" for="">Confirmed</label>
+            </p>
+            <div>
+              <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#prescModal">Add
+                Prescription</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="prescModal" tabindex="-1" aria-labelledby="prescModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title h5" id="prescModalLabel">Add Prescription</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <textarea class="form-control" name="prescText" id="prescText"></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success addPresc">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="modal fade"
+          id="bookingModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Book Follow-up Appointment for Patient</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body p-0">
+                <div class="card border-1 border-secondary rounded-0">
+                  <div class="card-header">
+                    <div
+                      class="row d-flex justify-content-between px-0 text-center"
+                    >
+                      <div class="col-1 px-0">
+                        <a id="prevPage" href="">
+                          <i class="fas fa-angle-double-left fa-lg"></i>
+                        </a>
+                      </div>
+                      <div id="labelSlotsDay1" class="col px-0 text-wrap">Day 1</div>
+                      <div id="labelSlotsDay2" class="col px-0">Day 2</div>
+                      <div id="labelSlotsDay3" class="col px-0">Day 3</div>
+                      <div id="labelSlotsDay4" class="col px-0">Day 4</div>
+                      <div id="labelSlotsDay5" class="col px-0">Day 5</div>
+                      <div id="labelSlotsDay6" class="col px-0">Day 6</div>
+                      <div id="labelSlotsDay7" class="col px-0">Day 7</div>
+                      <div class="col-1 px-0">
+                        <a id="nextPage" href="">
+                          <i class="fas fa-angle-double-right fa-lg"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body user-scroll">
+                    <div
+                      class="row d-flex justify-content-between px-0 text-center"
+                    >
+                      <div class="col-1"></div>
+                      <div id="slotsDay1" class="col">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >09:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >10:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >11:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >12:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >13:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >14:00</button>
+                      </div>
+                      <div id="slotsDay2" class="col">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div id="slotsDay3" class="col">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div id="slotsDay4" class="col">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div id="slotsDay5" class="col">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >11:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >12:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >13:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >14:00</button>
+                      </div>
+                      <div id="slotsDay6" class="col">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div id="slotsDay7" class="col">
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >07:00</button>
+                        <button
+                          class="slot btn btn-outline-success btn-sm rounded-0 my-1"
+                        >08:00</button>
+                      </div>
+                      <div class="col-1"></div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row">
+                      <div class="col">
+                        <p>
+                          <label class="fw-light" for="">Last Appointment:</label>
+                          <label
+                            id="labelCurApptmnt"
+                            class="fs-5 m-2"
+                            for=""
+                          >April 30, 19:00</label>
+                        </p>
+                      </div>
+                      <div class="col">
+                        <p>
+                          <label class="fw-light" for="">New Appointment:</label>
+                          <label
+                            id="labelNewApptmnt"
+                            class="fs-5 m-2"
+                            for=""
+                          >April 30, 20:00</label>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >Close</button>
+                <button
+                  id="bookApptmnt"
+                  type="button"
+                  class="btn btn-success"
+                >Book</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{! do not remove below line }}
+        <input type="hidden" id="id" value="{{apptmnt._id}}" />
+
+      </div>
+    </div>
+  </div>
+</div>

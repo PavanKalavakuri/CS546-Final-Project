@@ -1,0 +1,80 @@
+<div id="search_bar">
+    <form action="/search" method="post">
+        <div class="row">
+            <div class="col">
+
+
+                <select class="form-select form-select-lg rounded-0" id="specialty" name="specialty">
+                    <option selected>Specialty</option>
+                    <option>Acupuncturist</option>
+                    <option>Addiction Specialist</option>
+                    <option>Adult Nurse Practitioner</option>
+                    <option>Dentist</option>
+                    <option>Dermatologist</option>
+                    <option>Primary Care</option>
+                    <option>Eye Doctor</option>
+                    {{!-- {{#each specialty}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}} --}}
+                </select>
+                {{#if incorrectSpecialty}}
+                <span class="text-danger">{{{incorrectSpecialty}}}</span>
+                {{else}}
+                <span class="text-danger"></span>
+                {{/if}}
+
+            </div>
+            <div class="col">
+                <select class="form-select form-select-lg rounded-0" id="insurance" name="insurance">
+                    <option selected>Choose your Insurance</option>
+                    <option value="self">Self Payment</option>
+                    <option>Aetna</option>
+                    <option>Cigna</option>
+                    <option>United Healthcare</option>
+                    <option>Humana</option>
+                    <option>Kaiser Foundation</option>
+                    <option>Centene Corporation</option>
+                    {{!-- {{#each insurances}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}} --}}
+                </select>
+                {{#if incorrectInsurance}}
+                <span class="text-danger">{{{incorrectInsurance}}}</span>
+                {{else}}
+                <span class="text-danger"></span>
+                {{/if}}
+            </div>
+            <div class="col">
+                <input aria-label="Enter a location" placeholder="Enter a location" class="form-select form-select-lg rounded-0" id="locationS"
+                    name="locationS" type="text">
+                {{#if locError}}
+                <span class="text-danger">{{locError}}</span>
+                {{else}}
+                <span class="text-danger"></span>
+                {{/if}}
+            </div>
+            <div class="col-1">
+                <button type="submit" class="btn btn-primary btn-lg rounded-0">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+
+    function initAutocomplete() {
+        // Create the search box and link it to the UI element.
+        const input = document.getElementById("locationS");
+        const searchBox = new google.maps.places.SearchBox(input);
+
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+        });
+    }
+    //window.initAutocomplete = initAutocomplete;
+
+</script>
